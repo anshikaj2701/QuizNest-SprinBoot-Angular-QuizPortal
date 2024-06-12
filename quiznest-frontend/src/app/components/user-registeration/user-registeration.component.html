@@ -1,0 +1,95 @@
+<div mat-dialog-title class="dialogTitle">
+    Register Here!!
+</div>
+
+<form [formGroup]="registerationForm" (ngSubmit)="registerUser()">
+    <div mat-dialog-content class="content">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input 
+                    matInput placeholder="First Name"
+                    formControlName="firstName"
+                    required="true">
+                </mat-form-field>
+            </div>
+            <div class="form-group col-md-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input
+                    formControlName="lastName" 
+                    matInput  placeholder="Last Name"
+                    required="true">
+                </mat-form-field>
+            </div>
+        </div>
+
+        
+        <div class="form-group">
+            <mat-form-field class="full" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input 
+                formControlName="email"
+                matInput  placeholder="Email"
+                required="true">
+            </mat-form-field>
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>Phone Number</mat-label>
+                    <input type="tel"
+                    formControlName="phoneNo"
+                    matInput placeholder="First Name"
+                    required="true">
+                </mat-form-field>
+            </div>
+            <div class="form-group col-md-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>Gender</mat-label>
+                    <mat-select name="gender" formControlName="gender">
+                        <mat-option *ngFor="let gender of genders" [value]="gender.value">
+                            {{gender.label}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+        
+        <div class="form-group">
+            <mat-form-field class='full' appearance="outline">
+                <mat-label>Password</mat-label>
+                <input 
+                formControlName="password"
+                matInput type="password" 
+                placeholder="Enter your password"
+                required="true">
+                <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button> -->
+                </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field class="full" appearance="outline">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput type="password" placeholder="Enter your password"
+                required="true">
+                <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button> -->
+                </mat-form-field>
+        </div>
+
+        <div mat-dialog-actions class="submitBtn">
+            <button mat-raised-button color="primary" type="submit">Sign Up</button>
+            <button mat-raised-button color="warn" type="reset">Reset</button>
+        </div>
+    </div>
+
+    
+</form>
+
